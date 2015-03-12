@@ -1,0 +1,42 @@
+<ion-view view-title="Feed">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-compose" ng-click="newStatus()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+        <ion-item ng-repeat="status in statuses" href="#/app/feed/{{status.id}}">
+            <h3>Tryna {{status.title}}</h3>
+            <p>{{status.user}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+<script id="new-status.html" type="text/ng-template">
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">New Status</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewStatus()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createStatus(status)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Tryna what...?" ng-model="status.title">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Create Status</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+
+</script>
